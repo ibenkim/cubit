@@ -43,13 +43,6 @@ python3 -m http.server 8000
 # Option B: Using Node (npx)
 npx serve -l 8000
 ```
-
-### 2. Login to the Dashboard
-Once the server is running, navigate to `http://localhost:8000/login.html` and use the default administrator credentials:
-
-*   **Username**: `admin`
-*   **Password**: `jota`
-
 ---
 
 ## 📂 Project Structure
