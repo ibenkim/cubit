@@ -4,7 +4,7 @@ Track meaningful milestones and updates over time.
 
 ## 2026-05-27 (auth + my work)
 
-- Implemented **login / logout flow** with temporary credentials (`admin` / `jota`):
+- Implemented **login / logout flow**:
   - `login.html` form now validates against hardcoded credentials. On success it
     writes a `cubit_user` session to `sessionStorage` and redirects to `index.html`.
     On failure it shows an inline error banner and highlights both fields.
