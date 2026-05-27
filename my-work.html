@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cubit — My Work</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a href="index.html" class="logo" aria-label="cubit home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__wordmark">cubit</span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <a href="index.html" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Home</span>
+        </a>
+        <a href="practice.html" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Practice</span>
+        </a>
+        <a href="#" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Skills Map</span>
+        </a>
+        <a href="my-work.html" class="nav__item nav__item--active" aria-current="page">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">My Work</span>
+        </a>
+      </nav>
+
+      <section class="recents" aria-label="Recent items">
+        <h2 class="recents__title">Recents</h2>
+        <ul class="recents__list">
+          <li>
+            <a href="#" class="recents__item recents__item--active">Quadratics: solve for x...</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Linear equations practice</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Roots practice</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Quadratic equations</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Explain why</a>
+          </li>
+        </ul>
+      </section>
+
+      <div id="sidebar-user-area" class="user-profile">
+        <!-- filled by initSidebarAuth() -->
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="main mywork-main">
+
+      <!-- Title row + toolbar -->
+      <div class="mywork-header">
+        <div class="mywork-title-area">
+          <h1 class="mywork-title">My Work</h1>
+          <nav class="breadcrumb" aria-label="Folder path">
+            <span class="breadcrumb__root">My Work</span>
+            <span class="breadcrumb__chevron" aria-hidden="true"></span>
+            <button type="button" class="breadcrumb__folder" id="breadcrumb-folder-btn">
+              <span>Folder 1</span>
+              <span class="breadcrumb__caret" aria-hidden="true"></span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="mywork-toolbar">
+          <label class="search-bar" for="mywork-search">
+            <span class="search-bar__icon" aria-hidden="true">&#x2315;</span>
+            <input
+              type="search"
+              id="mywork-search"
+              class="search-bar__input"
+              placeholder="Search your work"
+              aria-label="Search your work"
+            />
+          </label>
+          <button type="button" class="toolbar-btn" id="mywork-select-btn">
+            <span class="toolbar-btn__icon" aria-hidden="true"></span>
+            <span>Select</span>
+          </button>
+          <button type="button" class="toolbar-btn toolbar-btn--filled" id="mywork-new-folder-btn">
+            <span class="toolbar-btn__icon toolbar-btn__icon--light" aria-hidden="true"></span>
+            <span>New Folder</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Folders -->
+      <section class="mywork-section" aria-label="Folders">
+        <div class="mywork-folders" id="folders-list">
+          <div class="folder-card">
+            <span class="folder-card__icon" aria-hidden="true"></span>
+            <div class="folder-card__meta">
+              <span class="folder-card__name">Folder Name</span>
+              <span class="folder-card__count">24 items</span>
+            </div>
+            <button type="button" class="card-menu-btn" aria-label="Folder Name options" aria-haspopup="menu">⋮</button>
+          </div>
+
+          <div class="folder-card">
+            <span class="folder-card__icon" aria-hidden="true"></span>
+            <div class="folder-card__meta">
+              <span class="folder-card__name">Test prep</span>
+              <span class="folder-card__count">15 items</span>
+            </div>
+            <button type="button" class="card-menu-btn" aria-label="Test prep options" aria-haspopup="menu">⋮</button>
+          </div>
+
+          <div class="folder-card">
+            <span class="folder-card__icon" aria-hidden="true"></span>
+            <div class="folder-card__meta">
+              <span class="folder-card__name">Final prep</span>
+              <span class="folder-card__count">30 items</span>
+            </div>
+            <button type="button" class="card-menu-btn" aria-label="Final prep options" aria-haspopup="menu">⋮</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conversation cards -->
+      <section class="mywork-section" aria-label="Conversations">
+        <div class="conv-grid" id="conv-list">
+          <article class="conv-card">
+            <div class="conv-card__thumb" aria-hidden="true"></div>
+            <div class="conv-card__body">
+              <p class="conv-card__title">Linear Equations Practice</p>
+              <p class="conv-card__time">2h ago</p>
+              <span class="conv-card__tag" aria-hidden="true"></span>
+            </div>
+            <button type="button" class="card-menu-btn conv-card__menu-btn" aria-label="Linear Equations Practice options" aria-haspopup="menu">⋮</button>
+          </article>
+
+          <article class="conv-card">
+            <div class="conv-card__thumb" aria-hidden="true"></div>
+            <div class="conv-card__body">
+              <p class="conv-card__title">Quadratics</p>
+              <p class="conv-card__time">Yesterday</p>
+              <span class="conv-card__tag" aria-hidden="true"></span>
+            </div>
+            <button type="button" class="card-menu-btn conv-card__menu-btn" aria-label="Quadratics options" aria-haspopup="menu">⋮</button>
+          </article>
+
+          <article class="conv-card">
+            <div class="conv-card__thumb" aria-hidden="true"></div>
+            <div class="conv-card__body">
+              <p class="conv-card__title">Factoring</p>
+              <p class="conv-card__time">2 days ago</p>
+              <span class="conv-card__tag" aria-hidden="true"></span>
+            </div>
+            <button type="button" class="card-menu-btn conv-card__menu-btn" aria-label="Factoring options" aria-haspopup="menu">⋮</button>
+          </article>
+
+          <article class="conv-card">
+            <div class="conv-card__thumb" aria-hidden="true"></div>
+            <div class="conv-card__body">
+              <p class="conv-card__title">Linear Equations</p>
+              <p class="conv-card__time">Last week</p>
+              <span class="conv-card__tag" aria-hidden="true"></span>
+            </div>
+            <button type="button" class="card-menu-btn conv-card__menu-btn" aria-label="Linear Equations options" aria-haspopup="menu">⋮</button>
+          </article>
+
+          <article class="conv-card">
+            <div class="conv-card__thumb" aria-hidden="true"></div>
+            <div class="conv-card__body">
+              <p class="conv-card__title">Roots Practice</p>
+              <p class="conv-card__time">Last week</p>
+              <span class="conv-card__tag" aria-hidden="true"></span>
+            </div>
+            <button type="button" class="card-menu-btn conv-card__menu-btn" aria-label="Roots Practice options" aria-haspopup="menu">⋮</button>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ============ CONTEXT MENU (⋮ button) ============ -->
+  <div class="ctx-menu" id="ctx-menu" hidden role="menu" aria-label="Card options">
+    <button class="ctx-menu__item" role="menuitem" data-action="generate">
+      <span class="ctx-menu__item-icon" aria-hidden="true"></span>
+      Generate practice
+    </button>
+    <hr class="ctx-menu__divider" />
+    <button class="ctx-menu__item" role="menuitem" data-action="move">
+      <span class="ctx-menu__item-icon" aria-hidden="true"></span>
+      Move
+    </button>
+    <button class="ctx-menu__item ctx-menu__item--danger" role="menuitem" data-action="delete">
+      <span class="ctx-menu__item-icon" aria-hidden="true"></span>
+      Delete
+    </button>
+  </div>
+
+  <!-- ============ RIGHT-CLICK CONTEXT MENU ============ -->
+  <div class="ctx-menu" id="rightclick-menu" hidden role="menu" aria-label="Page options">
+    <button class="ctx-menu__item" role="menuitem" data-action="generate">
+      <span class="ctx-menu__item-icon" aria-hidden="true"></span>
+      Generate practice
+    </button>
+    <hr class="ctx-menu__divider" />
+    <button class="ctx-menu__item" role="menuitem" data-action="new-folder">
+      <span class="ctx-menu__item-icon" aria-hidden="true"></span>
+      Create new folder
+    </button>
+    <button class="ctx-menu__item" role="menuitem" data-action="move">
+      <span class="ctx-menu__item-icon" aria-hidden="true"></span>
+      Move
+    </button>
+    <button class="ctx-menu__item ctx-menu__item--danger" role="menuitem" data-action="delete">
+      <span class="ctx-menu__item-icon" aria-hidden="true"></span>
+      Delete
+    </button>
+  </div>
+
+  <!-- ============ MOVE MODAL ============ -->
+  <div class="modal-overlay" id="move-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="move-modal-title">
+      <h2 class="modal__title" id="move-modal-title">Move &ldquo;file&rdquo;</h2>
+      <p class="modal__subtitle">from <strong>Algebra</strong></p>
+
+      <nav class="breadcrumb modal__breadcrumb" aria-label="Move destination path">
+        <span class="breadcrumb__root">My Work</span>
+        <span class="breadcrumb__chevron" aria-hidden="true"></span>
+        <span class="breadcrumb__folder-label">Folder 1</span>
+      </nav>
+
+      <div class="modal__folder-grid" role="radiogroup" aria-label="Choose destination folder">
+        <button type="button" class="modal__folder-btn modal__folder-btn--active" role="radio" aria-checked="true">
+          <span class="modal__folder-icon" aria-hidden="true"></span>
+          Factoring
+        </button>
+        <button type="button" class="modal__folder-btn" role="radio" aria-checked="false">
+          <span class="modal__folder-icon" aria-hidden="true"></span>
+          Quadratics
+        </button>
+        <button type="button" class="modal__folder-btn" role="radio" aria-checked="false">
+          <span class="modal__folder-icon" aria-hidden="true"></span>
+          Test Prep
+        </button>
+      </div>
+
+      <div class="modal__actions">
+        <button type="button" class="modal__action-btn" id="modal-create-folder">
+          <span class="modal__action-icon" aria-hidden="true"></span>
+          Create folder
+        </button>
+        <button type="button" class="modal__action-btn modal__action-btn--filled" id="modal-move-file">
+          Move file
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/js/main.js" defer></script>
+</body>
+</html>

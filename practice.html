@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cubit — Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a href="index.html" class="logo" aria-label="cubit home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__wordmark">cubit</span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <a href="index.html" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Home</span>
+        </a>
+        <a href="practice.html" class="nav__item nav__item--active" aria-current="page">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Practice</span>
+        </a>
+        <a href="#" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Skills Map</span>
+        </a>
+        <a href="my-work.html" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">My Work</span>
+        </a>
+      </nav>
+
+      <section class="recents" aria-label="Recent items">
+        <h2 class="recents__title">Recents</h2>
+        <ul class="recents__list">
+          <li>
+            <a href="#" class="recents__item recents__item--active">Quadratics: solve for x...</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Linear equations practice</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Roots practice</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Quadratic equations</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Explain why</a>
+          </li>
+        </ul>
+      </section>
+
+      <div id="sidebar-user-area" class="user-profile">
+        <!-- filled by initSidebarAuth() -->
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="main">
+      <header class="page-header">
+        <h1 class="page-title page-title--md">Practice</h1>
+        <button type="button" class="btn-pill btn-pill--muted" id="header-generate">
+          <span class="btn-pill__icon" aria-hidden="true"></span>
+          <span>Generate Practice</span>
+        </button>
+      </header>
+
+      <section class="practice-card" aria-label="Practice options">
+        <!-- Section 1: Choose topics -->
+        <details class="section" open>
+          <summary class="section__header">
+            <span class="section__avatar" aria-hidden="true"></span>
+            <span class="section__heading">
+              <span class="section__title">Choose topics</span>
+              <span class="section__subtitle">Select the topics to include in your practice.</span>
+            </span>
+            <span class="section__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="section__body">
+            <div class="chip-row">
+              <button type="button" class="chip chip--active" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Quadratics</span>
+              </button>
+              <button type="button" class="chip chip--active" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Factoring</span>
+              </button>
+              <button type="button" class="chip" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Linear Equations</span>
+              </button>
+              <button type="button" class="chip" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Functions</span>
+              </button>
+              <button type="button" class="chip chip--add" data-add-chip="topic" data-placeholder="New topic">
+                <span class="chip__plus" aria-hidden="true">+</span>
+                <span class="chip__label">Add topic</span>
+              </button>
+            </div>
+          </div>
+        </details>
+
+        <hr class="section-divider" />
+
+        <!-- Section 2: Use past work -->
+        <details class="section" open>
+          <summary class="section__header">
+            <span class="section__avatar" aria-hidden="true"></span>
+            <span class="section__heading">
+              <span class="section__title">
+                Use past work
+                <span class="section__title-optional">(optional)</span>
+              </span>
+              <span class="section__subtitle">Add examples or sources</span>
+            </span>
+            <span class="section__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="section__body">
+            <div class="action-row">
+              <label class="action-pill" for="practice-files">
+                <span class="action-pill__icon" aria-hidden="true"></span>
+                <span>Upload file(s)</span>
+              </label>
+              <input
+                type="file"
+                id="practice-files"
+                class="visually-hidden"
+                accept="image/*,application/pdf"
+                multiple
+                hidden
+              />
+              <button type="button" class="action-pill">
+                <span class="action-pill__icon" aria-hidden="true"></span>
+                <span>Choose from My Work</span>
+              </button>
+            </div>
+
+            <ul class="attachment-grid" id="practice-attachments">
+              <li class="attachment">
+                <span class="attachment__avatar" aria-hidden="true"></span>
+                <span class="attachment__meta">
+                  <span class="attachment__name">Quadratics HW.png</span>
+                  <span class="attachment__type">Image</span>
+                </span>
+                <button type="button" class="attachment__remove" aria-label="Remove Quadratics HW.png">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </li>
+              <li class="attachment">
+                <span class="attachment__avatar" aria-hidden="true"></span>
+                <span class="attachment__meta">
+                  <span class="attachment__name">Algebra</span>
+                  <span class="attachment__type">Folder</span>
+                </span>
+                <button type="button" class="attachment__remove" aria-label="Remove Algebra">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </li>
+              <li class="attachment">
+                <span class="attachment__avatar" aria-hidden="true"></span>
+                <span class="attachment__meta">
+                  <span class="attachment__name">HW2.pdf</span>
+                  <span class="attachment__type">File</span>
+                </span>
+                <button type="button" class="attachment__remove" aria-label="Remove HW2.pdf">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <hr class="section-divider" />
+
+        <!-- Section 3: Choose focus -->
+        <details class="section" open>
+          <summary class="section__header">
+            <span class="section__avatar" aria-hidden="true"></span>
+            <span class="section__heading">
+              <span class="section__title">Choose focus</span>
+              <span class="section__subtitle">Pick key focuses or add your own</span>
+            </span>
+            <span class="section__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="section__body">
+            <div class="chip-row">
+              <button type="button" class="chip chip--active" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Graphing</span>
+              </button>
+              <button type="button" class="chip chip--active" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Signs</span>
+              </button>
+              <button type="button" class="chip" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Vertex form</span>
+              </button>
+              <button type="button" class="chip" data-toggle="chip">
+                <span class="chip__icon" aria-hidden="true"></span>
+                <span class="chip__label">Functions</span>
+              </button>
+              <button type="button" class="chip chip--add" data-add-chip="focus" data-placeholder="New focus">
+                <span class="chip__plus" aria-hidden="true">+</span>
+                <span class="chip__label">Add focus</span>
+              </button>
+            </div>
+          </div>
+        </details>
+
+        <hr class="section-divider" />
+
+        <!-- Section 4: Practice settings -->
+        <details class="section" open>
+          <summary class="section__header">
+            <span class="section__avatar" aria-hidden="true"></span>
+            <span class="section__heading">
+              <span class="section__title">Practice settings</span>
+              <span class="section__subtitle">10 questions &nbsp;•&nbsp; Review</span>
+            </span>
+            <span class="section__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="section__body">
+            <div class="settings-row">
+              <div class="setting-card">
+                <h3 class="setting-card__title">Number of questions</h3>
+                <div class="segment-group" role="radiogroup" aria-label="Number of questions">
+                  <button type="button" class="segment" role="radio" aria-checked="false">5</button>
+                  <button type="button" class="segment segment--active" role="radio" aria-checked="true">10</button>
+                  <button type="button" class="segment" role="radio" aria-checked="false">15</button>
+                </div>
+              </div>
+              <div class="setting-card">
+                <h3 class="setting-card__title">Difficulty</h3>
+                <div class="segment-group" role="radiogroup" aria-label="Difficulty">
+                  <button type="button" class="segment segment--active segment--wide" role="radio" aria-checked="true">Review</button>
+                  <button type="button" class="segment segment--wide" role="radio" aria-checked="false">Challenge</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <hr class="section-divider" />
+
+        <!-- Section 5: Extra notes -->
+        <details class="section" open>
+          <summary class="section__header">
+            <span class="section__avatar" aria-hidden="true"></span>
+            <span class="section__heading">
+              <span class="section__title">
+                Extra notes
+                <span class="section__title-optional">(optional)</span>
+              </span>
+              <span class="section__subtitle">Add any details to help Cubit personalize your practice.</span>
+            </span>
+            <span class="section__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="section__body">
+            <div class="textarea-block">
+              <textarea
+                class="textarea-block__input"
+                placeholder="Add any notes here..."
+              ></textarea>
+            </div>
+          </div>
+        </details>
+
+        <div class="practice-card__cta">
+          <button type="button" class="btn-pill btn-pill--muted" id="footer-generate">
+            <span class="btn-pill__icon" aria-hidden="true"></span>
+            <span>Generate Practice</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="static/js/main.js" defer></script>
+</body>
+</html>

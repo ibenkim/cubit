@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cubit — Get math help</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a href="index.html" class="logo" aria-label="cubit home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__wordmark">cubit</span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <a href="index.html" class="nav__item nav__item--active" aria-current="page">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Home</span>
+        </a>
+        <a href="practice.html" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Practice</span>
+        </a>
+        <a href="#" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">Skills Map</span>
+        </a>
+        <a href="my-work.html" class="nav__item">
+          <span class="nav__icon" aria-hidden="true"></span>
+          <span class="nav__label">My Work</span>
+        </a>
+      </nav>
+
+      <section class="recents" aria-label="Recent items">
+        <h2 class="recents__title">Recents</h2>
+        <ul class="recents__list">
+          <li>
+            <a href="#" class="recents__item recents__item--active">Quadratics: solve for x...</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Linear equations practice</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Roots practice</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Quadratic equations</a>
+          </li>
+          <li>
+            <a href="#" class="recents__item">Explain why</a>
+          </li>
+        </ul>
+      </section>
+
+      <div id="sidebar-user-area" class="user-profile">
+        <!-- filled by initSidebarAuth() -->
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="main">
+      <h1 class="page-title">Get math help</h1>
+
+      <!-- Upload card -->
+      <section class="upload-card" aria-label="Upload homework">
+        <div class="mode-switch" role="tablist" aria-label="Input mode">
+          <button
+            type="button"
+            class="mode-switch__tab mode-switch__tab--active"
+            role="tab"
+            aria-selected="true"
+            data-mode="upload"
+          >
+            Upload file
+          </button>
+          <button
+            type="button"
+            class="mode-switch__tab"
+            role="tab"
+            aria-selected="false"
+            data-mode="manual"
+          >
+            Type manually
+          </button>
+          <span class="mode-switch__underline" aria-hidden="true"></span>
+        </div>
+
+        <!-- Upload-mode body -->
+        <div class="mode-panel" data-panel="upload">
+          <div class="dropzone" id="dropzone" tabindex="0" aria-label="Drop file here or click to browse">
+            <span class="dropzone__icon" aria-hidden="true"></span>
+            <p class="dropzone__title">Drag &amp; drop your homework here</p>
+            <p class="dropzone__hint">JPG, PNG, PDF up to __MB</p>
+            <input
+              type="file"
+              id="file-input"
+              class="dropzone__input"
+              accept="image/jpeg,image/png,application/pdf"
+              hidden
+            />
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="question-input">
+              What is the question?
+              <span class="field__label-optional">(optional)</span>
+            </label>
+            <div class="field__input-wrap">
+              <input
+                type="text"
+                id="question-input"
+                class="field__input"
+                placeholder="ex: solve for x"
+              />
+            </div>
+          </div>
+
+          <div class="upload-card__cta">
+            <button type="button" class="btn btn--muted">Give hint</button>
+          </div>
+        </div>
+
+        <!-- Manual-mode body (hidden by default) -->
+        <div class="mode-panel" data-panel="manual" hidden>
+          <div class="field">
+            <label class="field__label" for="manual-input">
+              Type your problem
+            </label>
+            <div class="field__input-wrap field__input-wrap--lg">
+              <textarea
+                id="manual-input"
+                class="field__input field__input--textarea"
+                placeholder="ex: 2x + 3 = 11"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="upload-card__cta">
+            <button type="button" class="btn btn--muted">Give hint</button>
+          </div>
+        </div>
+
+        <hr class="upload-card__divider" />
+
+        <div class="upload-card__actions">
+          <button type="button" class="action-button action-button--primary">
+            <span class="action-button__bullet" aria-hidden="true"></span>
+            <span>Correct my work</span>
+          </button>
+          <button type="button" class="action-button">
+            <span class="action-button__bullet" aria-hidden="true"></span>
+            <span>Give me a hint</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Recent Work -->
+      <section class="recent-work" aria-label="Recent work">
+        <header class="recent-work__header">
+          <h2 class="recent-work__title">Recent Work</h2>
+          <a href="#" class="recent-work__view-all">View All</a>
+        </header>
+
+        <ul class="recent-work__grid">
+          <li class="recent-work__card">
+            <span class="recent-work__thumb" aria-hidden="true"></span>
+          </li>
+          <li class="recent-work__card">
+            <span class="recent-work__thumb" aria-hidden="true"></span>
+          </li>
+          <li class="recent-work__card">
+            <span class="recent-work__thumb" aria-hidden="true"></span>
+          </li>
+          <li class="recent-work__card">
+            <span class="recent-work__thumb" aria-hidden="true"></span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="static/js/main.js" defer></script>
+</body>
+</html>
